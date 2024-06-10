@@ -1,3 +1,10 @@
+// Tuples challenge
+// 1. Add an array to the variable of currentLocation I have added. This array
+// must have your current location, time, and degrees celcius of your location
+// NOTE: make sure to make this a Tuple, to only allow those types in that
+// structure.
+// 2. Add this visually to a footer on your site
+
 const propertyContainer = document.querySelector('.properties')
 const footer = document.querySelector('.footer')
 
@@ -120,3 +127,5 @@ for (let i = 0; i < properties.length; i++) {
 
 let currentLocation
 footer.innerHTML = currentLocation
+
+
