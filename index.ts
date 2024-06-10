@@ -1,6 +1,7 @@
 import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './utils'
 import { Price, Country } from './types'
 import { Review } from './interfaces'
+import { Permissions , LoyaltyUser } from './enums'
 const propertyContainer = document.querySelector('.properties')
 const reviewContainer = document.querySelector('.reviews')
 const container = document.querySelector('.container')
@@ -51,20 +52,22 @@ const you = {
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
-// Array of Properties
-const properties : {
+interface Property {
     image: string;
     title: string;
-    price: number;
+    price: Price;
     location: {
         firstLine: string;
         city: string;
-        code: number;
-        country: string;
-    };
-    contact: [ number, string ];
+        code: number | string;
+        country: Country
+    }
+    contact: [ number, string];
     isAvailable: boolean;
-}[] = [
+}
+
+// Array of Properties
+const properties : Property[] = [
     {
         image: 'images/colombia-property.jpg',
         title: 'Colombian Shack',
@@ -155,3 +158,17 @@ class MainProperty {
     }
 }
 
+let yourMainProperty = new MainProperty(
+    'images/italian-property.jpg', 
+    'Italian House',
+    [{
+        name: 'Olive',
+        stars: 5,
+        loyaltyUser: LoyaltyUser.GOLD_USER,
+        date: '12-04-2021'
+    }] )
+
+const mainImageContainer = document.querySelector('.main-image')
+const image = document.createElement('img')
+image.setAttribute('src', yourMainProperty.src)
+mainImageContainer.appendChild(image)
