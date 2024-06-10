@@ -1,5 +1,6 @@
 import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './utils'
 import { Price, Country } from './types'
+import { Review } from './interfaces'
 const propertyContainer = document.querySelector('.properties')
 const reviewContainer = document.querySelector('.reviews')
 const container = document.querySelector('.container')
@@ -19,12 +20,7 @@ enum LoyaltyUser {
 }
 
 // Reviews
-const reviews: { 
-    name: string; 
-    stars: number; 
-    loyaltyUser: LoyaltyUser; 
-    date: string; 
-    }[] = [
+const reviews: Review[] = [
     {
         name: 'Sheia',
         stars: 5,
@@ -44,6 +40,7 @@ const reviews: {
         date: '27-03-2021',
     },
 ]
+
 
 const you = {
     firstName: 'Bobby',
@@ -128,12 +125,7 @@ for (let i = 0; i < properties.length; i++) {
 
 //Broken code
 let count = 0
-function addReviews(array: {
-    name: string;
-    stars: number;
-    loyaltyUser: LoyaltyUser;
-    date: string;
-}[] ) : void {
+function addReviews(array: Review[]) : void {
     if (!count ) {
         count++
         const topTwo = getTopTwoReviews(array)
