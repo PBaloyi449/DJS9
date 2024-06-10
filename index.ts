@@ -1,53 +1,41 @@
-// Tuples challenge
-// 1. Add an array to the variable of currentLocation I have added. This array
-// must have your current location, time, and degrees celcius of your location
-// NOTE: make sure to make this a Tuple, to only allow those types in that
-// structure.
-// 2. Add this visually to a footer on your site
-
+import { showReviewTotal, populateUser } from './utils'
+import { Permissions, LoyaltyUser } from './enums'
 const propertyContainer = document.querySelector('.properties')
 const footer = document.querySelector('.footer')
 
-import { showReviewTotal, populateUser } from './utils'
 let isOpen: boolean
 
 // Reviews
 const reviews : { 
     name: string; 
     stars: number; 
-    loyaltyUser: boolean; 
+    loyaltyUser: LoyaltyUser; 
     date: string
     }[] = [
     {
         name: 'Sheia',
         stars: 5,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUser.GOLD_USER,
         date: '01-04-2021'
     },
     {
         name: 'Andrzej',
         stars: 3,
-        loyaltyUser: false,
+        loyaltyUser: LoyaltyUser.BRONZE_USER,
         date: '28-03-2021'
     },
     {
         name: 'Omar',
         stars: 4,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUser.SILVER_USER,
         date: '27-03-2021'
     },
 ]
 
-// User
-const you: {
-    firstName: string;
-    lastName: string;
-    isReturning: boolean;
-    age: number;
-    stayedAt: string[]
-} = {
+const you = {
     firstName: 'Bobby',
     lastName: 'Brown',
+    permissions: Permissions.ADMIN,
     isReturning: true,
     age: 35,
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
