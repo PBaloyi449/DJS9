@@ -8,7 +8,7 @@ const container = document.querySelector('.container')
 const button = document.querySelector('button')
 const footer = document.querySelector('.footer')
 
-let isLoggedIn: boolean
+//let isLoggedIn: boolean
 
 // Reviews
 const reviews: Review[] = [
@@ -34,8 +34,8 @@ const reviews: Review[] = [
 
 
 const you = {
-    firstName: 'Bobby',
-    lastName: 'Brown',
+    firstName: 'Portia',
+    lastName: 'Baloyi',
     permissions: Permissions.ADMIN,
     isReturning: true,
     age: 35,
@@ -132,10 +132,10 @@ function addReviews(array: Review[]) : void {
 
 button.addEventListener('click', () => addReviews(reviews))
 
-let currentLocation : [string, string, number] = ['London', '11.03', 17]
+const currentLocation : [string, string, number] = ['Johannesburg', '11.03', 17]
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'
 
-let yourMainProperty = new MainProperty(
+const yourMainProperty = new MainProperty(
     'images/italian-property.jpg', 
     'Italian House',
     [{

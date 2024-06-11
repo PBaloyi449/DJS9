@@ -3,7 +3,8 @@
   "description": "https://v2.scrimba.com/learn-typescript-c0l/~0q",
   "scripts": {
     "watch": "webpack -w",
-    "build": "webpack"
+    "build": "webpack",
+    "dev": "vite"
   },
   "dependencies": {
     "webpack": "^2.0"
